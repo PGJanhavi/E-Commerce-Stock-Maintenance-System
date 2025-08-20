@@ -1,0 +1,93 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme variables */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 243 61% 19%;  /* Navy: #201E43 */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 201 70% 26%;  /* Ocean: #134B70 */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 184 28% 46%;  /* Teal: #508C9B */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142 71.4% 29.2%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 243 61% 19%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 201 70% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 184 28% 46%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 10% 25%;
+    --sidebar-ring: 142 71.4% 29.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent/20 selection:text-accent-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg;
+  }
+  
+  .neo-glass {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-teal to-secondary bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+
+  .reveal-animation {
+    @apply opacity-0 transform translate-y-8 transition duration-500 ease-out;
+  }
+  
+  .reveal-animation.revealed {
+    @apply opacity-100 transform translate-y-0;
+  }
+  
+  .loading-shimmer {
+    @apply bg-gradient-to-r from-transparent via-white/10 to-transparent bg-[length:200%_100%] animate-shimmer;
+  }
+}
